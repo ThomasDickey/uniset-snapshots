@@ -1,0 +1,8 @@
+# UAX #11: East Asian Half-width
+
+# Plane 00
+# Rows	Positions (Cells)
+
+  20	A9
+  FF	61-BE C2-C7 CA-CF D2-D7 DA-DC E8-EE
+

@@ -1,0 +1,224 @@
+# Important common mathematical and technical symbols taken from ISO
+# 31-11 and other sources for education and engineering (including
+# software documentation) to be added in addition to the ISO 8859 1-4
+# repertoires. This subset does not attempt to cover any mathematical
+# symbol that has ever been used in any special field, but only the
+# most common ones that are sufficient for >90% of mathematical
+# communication and that are nicely displayable in low-res fixed-width
+# fonts. Full coverage is left to special software such as AMSTeX.
+
+#########################################################################
+# ISO 31-11 symbols that are probably known by every high-school student
+#########################################################################
+
+# these denote the sets of complex, natural, rational, real, and
+# integer numbers
+
+2102 # DOUBLE-STRUCK CAPITAL C           
+2115 # DOUBLE-STRUCK CAPITAL N           
+211A # DOUBLE-STRUCK CAPITAL Q           
+211D # DOUBLE-STRUCK CAPITAL R           
+2124 # DOUBLE-STRUCK CAPITAL Z           
+
+# general indication of direction and used to describe the domain and range
+# sets of functions (all directions included for use in commutative diagrams)
+
+2190 # LEFTWARDS ARROW                   
+2191 # UPWARDS ARROW                     
+2192 # RIGHTWARDS ARROW                  
+2193 # DOWNWARDS ARROW                   
+2194 # LEFT RIGHT ARROW                  
+2195 # UP DOWN ARROW                     
+
+# used to describe element mappings of functions (all four directions
+# included for use in commutative diagrams)
+
+21A4 # LEFTWARDS ARROW FROM BAR          
+21A5 # UPWARDS ARROW FROM BAR            
+21A6 # RIGHTWARDS ARROW FROM BAR         
+21A7 # DOWNWARDS ARROW FROM BAR          
+
+# implication symbol
+
+21D0 # LEFTWARDS DOUBLE ARROW            
+21D1 # UPWARDS DOUBLE ARROW              
+21D2 # RIGHTWARDS DOUBLE ARROW           
+21D3 # DOWNWARDS DOUBLE ARROW            
+21D4 # LEFT RIGHT DOUBLE ARROW           
+21D5 # UP DOWN DOUBLE ARROW              
+
+# common logic symbols
+
+2227 # LOGICAL AND                       
+2228 # LOGICAL OR                        
+2200 # FOR ALL                           
+2203 # THERE EXISTS                      
+2204 # THERE DOES NOT EXIST              
+
+# common set theory symbols
+
+2229 # INTERSECTION                      
+222A # UNION                             
+22C2 # N-ARY INTERSECTION
+22C3 # N-ARY UNION
+2201 # COMPLEMENT                        
+2205 # EMPTY SET                         
+2208 # ELEMENT OF                        
+2209 # NOT AN ELEMENT OF                 
+220B # CONTAINS AS MEMBER                
+220C # DOES NOT CONTAIN AS MEMBER        
+2282 # SUBSET OF                         
+2283 # SUPERSET OF                       
+2284 # NOT A SUBSET OF                   
+2285 # NOT A SUPERSET OF                 
+2286 # SUBSET OF OR EQUAL TO             
+2287 # SUPERSET OF OR EQUAL TO           
+2288 # NEITHER A SUBSET OF NOR EQUAL TO  
+2289 # NEITHER A SUPERSET OF NOR EQUAL TO
+228A # SUBSET OF WITH NOT EQUAL TO
+228B # SUPERSET OF WITH NOT EQUAL TO
+2329 # LEFT-POINTING ANGLE BRACKET       
+232A # RIGHT-POINTING ANGLE BRACKET      
+
+# common number theory symbols
+
+2261 # IDENTICAL TO                      
+2262 # NOT IDENTICAL TO
+2224 # DOES NOT DIVIDE            # for DIVIDES use VERTICAL BAR
+
+# common geometry symbols
+
+2225 # PARALLEL TO                # also for vector norm
+2226 # NOT PARALLEL TO
+221F # RIGHT ANGLE
+2221 # MEASURED ANGLE
+25A1 # WHITE SQUARE               # also d'Alambertian symbol
+25B3 # WHITE UP-POINTING TRIANGLE
+
+
+######################################################
+# other common math symbols, all defined in ISO 31-11
+######################################################
+
+2032 # PRIME
+2033 # DOUBLE PRIME
+2034 # TRIPLE PRIME
+2202 # PARTIAL DIFFERENTIAL              
+2206 # INCREMENT                         
+2207 # NABLA                             
+2212 # MINUS SIGN                 # usually longer than a HYPHEN
+2213 # MINUS-OR-PLUS SIGN                
+2218 # RING OPERATOR
+221D # PROPORTIONAL TO                   
+221E # INFINITY                          
+223C # TILDE OPERATOR             # centered, while TILDE is high
+2243 # ASYMPTOTICALLY EQUAL TO
+2245 # APPROXIMATELY EQUAL TO            
+2248 # ALMOST EQUAL TO                   
+2249 # NOT ALMOST EQUAL TO               
+2259 # ESTIMATES                  # = corresponds to
+2260 # NOT EQUAL TO
+2264 # LESS-THAN OR EQUAL TO             
+2265 # GREATER-THAN OR EQUAL TO          
+226A # MUCH LESS-THAN                    
+226B # MUCH GREATER-THAN                 
+22C5 # DOT OPERATOR
+
+# the following might look funny in low-res fonts.
+
+222B # INTEGRAL
+222E # CONTOUR INTEGRAL
+220F # N-ARY PRODUCT              # larger than GREEK CAPITAL LETTER PI
+2211 # N-ARY SUMMATION            # larger than GREEK CAPITAL LETTER SIGMA
+
+# characters from ISO 31-11 that are not included here, because they are
+# problematic to implement nicely in low-res fixed-width fonts
+
+# 225D # EQUAL TO BY DEFINITION   # write := instead
+
+
+##############################################################
+# other common math/tech symbols not (yet) found in ISO 31-11
+##############################################################
+
+# used to write an equation that is not yet proved
+
+225F # QUESTIONED EQUAL TO
+
+# Used in technical drawings and on product descriptions. Note that
+# DIAMETER SIGN is an exact circle while EMPTY SET is often a digit zero,
+# both with a stroke.
+
+2300 # DIAMETER SIGN                     
+
+# The following are very well known among computer scientists and
+# are likely to be used in computer software documentation and in
+# source code comments
+
+# up and down rounding operators (introduced in 1963 by Iverson, these
+# are basically SQUARE BRACKETs with one horizontal stroke removed, see
+# Knuth's TAOCP for details)
+
+2308 # LEFT CEILING                      
+2309 # RIGHT CEILING                     
+230A # LEFT FLOOR                        
+230B # RIGHT FLOOR                       
+
+# CIRCLED PLUS is popular for the XOR operator, it and CIRCLED TIMES
+# are also frequently used as generic group operators. Assertion and
+# models are very common symbols in formal theorem proof systems.
+# DOWN TACK and UP TACK denote the top and bottom element in a lattice,
+# UP TACK also denotes the undefined value of a function.
+
+2295 # CIRCLED PLUS                      
+2297 # CIRCLED TIMES
+22A6 # ASSERTION                        
+22A7 # MODELS
+22A4 # DOWN TACK
+22A5 # UP TACK                    # also perpendicular symbol
+
+###############################################################
+# The greek letters commonly used by mathematicians (from Tex)
+###############################################################
+
+0393 # GREEK CAPITAL LETTER GAMMA
+0394 # GREEK CAPITAL LETTER DELTA
+0398 # GREEK CAPITAL LETTER THETA
+039B # GREEK CAPITAL LETTER LAMDA
+039E # GREEK CAPITAL LETTER XI
+03A0 # GREEK CAPITAL LETTER PI
+03A3 # GREEK CAPITAL LETTER SIGMA
+03A5 # GREEK CAPITAL LETTER UPSILON
+03A6 # GREEK CAPITAL LETTER PHI
+03A8 # GREEK CAPITAL LETTER PSI
+03A9 # GREEK CAPITAL LETTER OMEGA
+
+03B1 # GREEK SMALL LETTER ALPHA
+03B2 # GREEK SMALL LETTER BETA
+03B3 # GREEK SMALL LETTER GAMMA
+03B4 # GREEK SMALL LETTER DELTA
+03B5 # GREEK SMALL LETTER EPSILON
+03B6 # GREEK SMALL LETTER ZETA
+03B7 # GREEK SMALL LETTER ETA
+03B8 # GREEK SMALL LETTER THETA
+03B9 # GREEK SMALL LETTER IOTA
+03BA # GREEK SMALL LETTER KAPPA
+03BB # GREEK SMALL LETTER LAMDA
+03BC # GREEK SMALL LETTER MU
+03BD # GREEK SMALL LETTER NU
+03BE # GREEK SMALL LETTER XI
+03C0 # GREEK SMALL LETTER PI
+03C1 # GREEK SMALL LETTER RHO
+03C2 # GREEK SMALL LETTER FINAL SIGMA
+03C3 # GREEK SMALL LETTER SIGMA
+03C4 # GREEK SMALL LETTER TAU
+03C5 # GREEK SMALL LETTER UPSILON
+03C6 # GREEK SMALL LETTER PHI
+03C7 # GREEK SMALL LETTER CHI
+03C8 # GREEK SMALL LETTER PSI
+03C9 # GREEK SMALL LETTER OMEGA
+
+03D1 # GREEK THETA SYMBOL
+03D5 # GREEK PHI SYMBOL
+03D6 # GREEK PI SYMBOL
+03F1 # GREEK RHO SYMBOL

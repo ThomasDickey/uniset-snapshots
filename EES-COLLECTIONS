@@ -1,0 +1,37 @@
+# Extended European Subset of ISO/IEC 10646-1 defined in ENV 1973:1995
+# as found on <http://www.indigo.ie/egt/standards/ees.html>
+0020-007E # Collection 1 Basic Latin
+00A0-00FF # Collection 2 Latin-1 Supplement
+0100-017F # Collection 3 Latin Extended-A
+0180-024F # Collection 4 Latin Extended-B
+0250-02AF # Collection 5 IPA Extensions
+02B0-02FF # Collection 6 Spacing Modifier Letters
+0300-036F # Collection 7 Combining Diacritical Marks
+0370-03CF # Collection 8 Basic Greek
+03D0-03FF # Collection 9 Greek Symbols and Coptic
+0400-04FF # Collection 10 Cyrillic
+0530-058F # Collection 11 Armenian
+10D0-10FF # Collection 27 Basic Georgian
+10A0-10CF # Collection 28 Georgian Extended
+1E00-1EFF # Collection 30 Latin Extended Additional
+1F00-1FFF # Collection 31 Greek Extended
+2000-206F # Collection 32 General Punctuation
+2070-209F # Collection 33 Superscripts and Subscripts
+20A0-20CF # Collection 34 Currency Symbols
+20D0-20FF # Collection 35 Combining Diacritical Marks for Symbols
+2100-214F # Collection 36 Letterlike Symbols
+2150-218F # Collection 37 Number Forms
+2190-21FF # Collection 38 Arrows
+2200-22FF # Collection 39 Mathematical Operators
+2300-23FF # Collection 40 Miscellaneous Technical
+2400-243F # Collection 41 Control Pictures
+2440-245F # Collection 42 Optical Character Recognition
+2460-24FF # Collection 43 Enclosed Alphanumerics
+2500-257F # Collection 44 Box Drawing
+2580-259F # Collection 45 Block Elements
+25A0-25FF # Collection 46 Geometric Shapes
+2600-26FF # Collection 47 Miscellaneous Symbols
+2700-27BF # Collection 48 Dingbats
+FB00-FB4F # Collection 63 Alphabetical Presentation Forms
+FE20-FE2F # Collection 65 Combining Half Marks
+FFF0-FFFD # Collection 70 Specials

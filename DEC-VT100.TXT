@@ -1,0 +1,52 @@
+#
+#	Name:             DEC VT100 and xterm graphics characters to Unicode
+#	Unicode version:  3.2
+#	Table version:    1.2
+#	Table format:     Format A
+#	Date:             2002-03-28
+#	Authors:          Markus Kuhn <http://www.cl.cam.ac.uk/~mgk25/>
+#
+#	General notes:
+#
+#	This table describes how the DEC VT100 graphics characters found
+#	in positions 0x00 to 0x1F of various X11 -misc-fixed-*-iso8859-1
+#	fonts map to Unicode.
+#
+#       Format:  Three tab-separated columns
+#                Column #1 is the X11 font code (in hex as 0xXX)
+#                Column #2 is the Unicode (in hex as 0xXXXX)
+#                Column #3 the Unicode name (follows a comment sign, '#')
+#
+#	Any comments or problems, contact <mkuhn@acm.org>.
+#
+0x01	0x25C6	#	BLACK DIAMOND
+0x02	0x2592	#	MEDIUM SHADE
+0x03	0x2409	#	SYMBOL FOR HORIZONTAL TABULATION
+0x04	0x240C	#	SYMBOL FOR FORM FEED
+0x05	0x240D	#	SYMBOL FOR CARRIAGE RETURN
+0x06	0x240A	#	SYMBOL FOR LINE FEED
+0x07	0x00B0	#	DEGREE SIGN
+0x08	0x00B1	#	PLUS-MINUS SIGN
+0x09	0x2424	#	SYMBOL FOR NEWLINE
+0x0A	0x240B	#	SYMBOL FOR VERTICAL TABULATION
+0x0B	0x2518	#	BOX DRAWINGS LIGHT UP AND LEFT
+0x0C	0x2510	#	BOX DRAWINGS LIGHT DOWN AND LEFT
+0x0D	0x250C	#	BOX DRAWINGS LIGHT DOWN AND RIGHT
+0x0E	0x2514	#	BOX DRAWINGS LIGHT UP AND RIGHT
+0x0F	0x253C	#	BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL
+0x10	0x23BA	#	HORIZONTAL SCAN LINE-1
+0x11	0x23BB	#	HORIZONTAL SCAN LINE-3
+0x12	0x2500	#	BOX DRAWINGS LIGHT HORIZONTAL
+0x13	0x23BC	#	HORIZONTAL SCAN LINE-7
+0x14	0x23BD	#	HORIZONTAL SCAN LINE-9
+0x15	0x251C	#	BOX DRAWINGS LIGHT VERTICAL AND RIGHT
+0x16	0x2524	#	BOX DRAWINGS LIGHT VERTICAL AND LEFT
+0x17	0x2534	#	BOX DRAWINGS LIGHT UP AND HORIZONTAL
+0x18	0x252C	#	BOX DRAWINGS LIGHT DOWN AND HORIZONTAL
+0x19	0x2502	#	BOX DRAWINGS LIGHT VERTICAL
+0x1A	0x2264	#	LESS-THAN OR EQUAL TO
+0x1B	0x2265	#	GREATER-THAN OR EQUAL TO
+0x1C	0x03C0	#	GREEK SMALL LETTER PI
+0x1D	0x2260	#	NOT EQUAL TO
+0x1E	0x00A3	#	POUND SIGN
+0x1F	0x00B7	#	MIDDLE DOT

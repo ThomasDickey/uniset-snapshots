@@ -1,0 +1,30 @@
+# Extended European Subset of ISO/IEC 10646-1 defined in ENV 1973:1995
+# as found on <http://www.indigo.ie/egt/standards/ees.html>
+
+# Plane 00
+# Rows	Positions (Cells)
+
+  00	20-7E A0-FF
+  01	00-F5 FA-FF
+  02	00-17 50-A8 B0-DE E0-E9
+  03	00-45 60-61 74-75 7A 7E 84-8A 8C 8E-A1 A3-CE D0-D6 DA DC DE E0
+  03	E2-F3
+  04	01-0C 0E-4F 51-5C 5E-86 90-C4 C7-C8 CB-CC D0-EB EE-F5 F8-F9
+  05	31-56 59-5F 61-87 89
+  10	A0-C5 D0-F6 FB
+  1E	00-9B A0-F9
+  1F	00-15 18-1D 20-45 48-4D 50-57 59 5B 5D 5F-7D 80-B4 B6-C4 C6-D3
+  1F	D6-DB DD-EF F2-F4 F6-FE
+  20	00-2E 30-46 6A-70 74-8E A0-AC D0-E1
+  21	00-38 53-82 90-EA
+  22	00-F1
+  23	00 02-7A
+  24	00-24 40-4A 60-EA
+  25	00-95 A0-EF
+  26	00-13 1A-6F
+  27	01-04 06-09 0C-27 29-4B 4D 4F-52 56 58-5E 61-67 76-94 98-AF B1-BE
+  FB	00-06 13-17 1E-36 38-3C 3E 40-41 43-44 46-4F
+  FE	20-23
+  FF	FC-FD
+
+# Number of characters in above table: 3099

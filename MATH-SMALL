@@ -1,0 +1,49 @@
+# A small set of very commonly used mathematical characters
+
+# elementary mathematical logic
+
+2227 # LOGICAL AND
+2228 # LOGICAL OR
+2200 # FOR ALL
+2203 # THERE EXISTS
+
+# elementary set theory
+
+2208 # ELEMENT OF
+2209 # NOT AN ELEMENT OF
+2229 # INTERSECTION
+222A # UNION
+2282 # SUBSET OF
+2283 # SUPERSET OF
+
+# a few calculus symbols
+
+2202 # PARTIAL DIFFERENTIAL
+221E # INFINITY
+
+# generic algebraic operators, CIRCLED PLUS also for
+# logic operator exclusive-or
+
+2295 # CIRCLED PLUS
+2297 # CIRCLED TIMES
+
+# to enclose sequences
+
+2329 # LEFT-POINTING ANGLE BRACKET
+232A # RIGHT-POINTING ANGLE BRACKET
+
+# common generic math symbols
+
+2248 # ALMOST EQUAL TO
+2259 # ESTIMATES (corresponds to)
+2260 # NOT EQUAL TO
+2261 # IDENTICAL TO
+2264 # LESS-THAN OR EQUAL TO
+2265 # GREATER-THAN OR EQUAL TO
+
+# arrows (for functions, limes, commutative diagrams, etc.)
+
+2190 # LEFTWARDS ARROW
+2191 # UPWARDS ARROW
+2192 # RIGHTWARDS ARROW
+2193 # DOWNWARDS ARROW

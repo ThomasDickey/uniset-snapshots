@@ -1,0 +1,48 @@
+#!/usr/bin/perl
+# Generate an ASCII listing of the Microsoft/Adobe WGL4.0 Character Set
+# Markus Kuhn <http://www.cl.cam.ac.uk/~mgk25/>
+
+if (1) {
+    #$source='http://www.adobe.com/supportservice/devrelations/opentype/';
+    $source='http://partners.adobe.com/asn/tech/type/opentype/appendices/';
+    $intro='wgl4.jsp';
+    @tables=('wgl4b.jsp', 'wgl4c.jsp', 'wgl4d.jsp', 'wgl4e.jsp');
+} else {
+    $source='http://www.microsoft.com/typography/OTSPEC/';
+    $intro='WGL4.HTM';
+    @tables=('WGL4B.HTM', 'WGL4C.HTM', 'WGL4D.HTM', 'WGL4E.HTM');
+}
+
+$unicodedata = "UnicodeData.txt";
+
+# read list of all Unicode names
+open(UDATA, $unicodedata) || die("Can't open Unicode database '$unicodedata': $!
+");
+while (<UDATA>) {
+    if (/^([0-9,A-F]{4,8});([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*);([^;]*)$/) {
+	$ucs = hex($1);
+        $name{$ucs} = $2;
+        $comment{$ucs} = $12;
+    } else {
+        die("Syntax error in line '$_' in file '$unicodedata'");
+    }
+}
+close(UDATA);
+
+print "# Windows Glyph List 4.0 (WGL4) Unicode subset generated from tables on\n";
+print "# <$source$intro>.\n";
+$count = 0;
+for $table (@tables) {
+    print STDERR "loading $source$table\n";
+    open(WGL4, "webcopy -o $source$table |") || die "Can't call 'webcopy'";
+    while (<WGL4>) {
+	if (/^\s*<td.*>\s*U\+([0-9a-f]{4})\s*(<\/td>)?\s*$/) {
+	    $ucs = hex($1);
+	    printf("0x%04X\t# %s\n", $ucs, $name{$ucs});
+	    $count++;
+	}
+    }
+    close(WGL4);
+}
+print "# $count characters in above table\n";
+printf STDERR "Warning: found $count characters, expected 653!\n" if ($count != 653);
