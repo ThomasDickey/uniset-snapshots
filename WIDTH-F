@@ -1,0 +1,8 @@
+# UAX #11: EastAsianWidth Full-width
+
+# Plane 00
+# Rows	Positions (Cells)
+
+  30	00
+  FF	01-60 E0-E6
+

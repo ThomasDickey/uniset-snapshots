@@ -1,0 +1,136 @@
+#
+#	Name:             ISO IR 143 to Unicode
+#	Unicode version:  2.1
+#	Table version:    1.0
+#	Table format:     Format A
+#	Date:             19 August 1998
+#	Authors:          Markus Kuhn <http://www.cl.cam.ac.uk/~mgk25/>
+#
+#	Copyright (c) 1998 Unicode, Inc.  All Rights reserved.
+#
+#	This file is provided as-is by Unicode, Inc. (The Unicode Consortium).
+#	No claims are made as to fitness for any particular purpose.  No
+#	warranties of any kind are expressed or implied.  The recipient
+#	agrees to determine applicability of information provided.  If this
+#	file has been provided on magnetic media by Unicode, Inc., the sole
+#	remedy for any claim will be exchange of defective media within 90
+#	days of receipt.
+#
+#	Recipient is granted the right to make copies in any form for
+#	internal distribution and to freely use the information supplied
+#	in the creation of products supporting Unicode.  Unicode, Inc.
+#	specifically excludes the right to re-distribute this file directly
+#	to third parties or other organizations whether for profit or not.
+#
+#	General notes:
+#
+#	This table contains the data the Unicode Consortium has on how
+#	Character Set 143 (Technical Set) from the ISO 2375
+#	International Register of Coded Character Sets maps into
+#	Unicode.
+#
+#	Format:  Three tab-separated columns
+#		 Column #1 is the ISO IR 143 code (in hex as 0xXX)
+#		 Column #2 is the Unicode (in hex as 0xXXXX)
+#		 Column #3 the Unicode name (follows a comment sign, '#')
+#
+#	The entries are in ISO IR 143 order
+#
+#	Any comments or problems, contact <errata@unicode.org>
+#
+0x20	0x02C7	#	CARON
+0x21	0x2261	#	IDENTICAL TO
+0x22	0x2227	#	LOGICAL AND
+0x23	0x2228	#	LOGICAL OR
+0x24	0x2229	#	INTERSECTION
+0x25	0x222A	#	UNION
+0x26	0x2282	#	SUBSET OF
+0x27	0x2283	#	SUPERSET OF
+0x28	0x21D0	#	LEFTWARDS DOUBLE ARROW
+0x29	0x21D2	#	RIGHTWARDS DOUBLE ARROW
+0x2A	0x2234	#	THEREFORE
+0x2B	0x2235	#	BECAUSE
+0x2C	0x2208	#	ELEMENT OF
+0x2D	0x220B	#	CONTAINS AS MEMBER
+0x2E	0x2286	#	SUBSET OF OR EQUAL TO
+0x2F	0x2287	#	SUPERSET OF OR EQUAL TO
+0x30	0x222B	#	INTEGRAL
+0x31	0x222E	#	CONTOUR INTEGRAL
+0x32	0x221E	#	INFINITY
+0x33	0x2207	#	NABLA
+0x34	0x2202	#	PARTIAL DIFFERENTIAL
+0x35	0x223C	#	TILDE OPERATOR
+0x36	0x2248	#	ALMOST EQUAL TO
+0x37	0x2243	#	ASYMPTOTICALLY EQUAL TO
+0x38	0x2245	#	APPROXIMATELY EQUAL TO
+0x39	0x2264	#	LESS-THAN OR EQUAL TO
+0x3A	0x2260	#	NOT EQUAL TO
+0x3B	0x2265	#	GREATER-THAN OR EQUAL TO
+0x3C	0x21D4	#	LEFT RIGHT DOUBLE ARROW
+0x3D	0x00AC	#	NOT SIGN
+0x3E	0x2200	#	FOR ALL
+0x3F	0x2203	#	THERE EXISTS
+0x40	0x2135	#	ALEF SYMBOL
+0x41	0x25A1	#	WHITE SQUARE
+0x42	0x2225	#	PARALLEL TO
+0x43	0x0393	#	GREEK CAPITAL LETTER GAMMA
+0x44	0x0394	#	GREEK CAPITAL LETTER DELTA
+0x45	0x22A5	#	UP TACK
+0x46	0x2221	#	MEASURED ANGLE
+0x47	0x221F	#	RIGHT ANGLE
+0x48	0x0398	#	GREEK CAPITAL LETTER THETA
+0x49	0x2329	#	LEFT-POINTING ANGLE BRACKET
+0x4A	0x232A	#	RIGHT-POINTING ANGLE BRACKET
+0x4B	0x039B	#	GREEK CAPITAL LETTER LAMDA
+0x4C	0x2032	#	PRIME
+0x4D	0x2033	#	DOUBLE PRIME
+0x4E	0x039E	#	GREEK CAPITAL LETTER XI
+0x4F	0x2213	#	MINUS-OR-PLUS SIGN
+0x50	0x03A0	#	GREEK CAPITAL LETTER PI
+0x51	0x00B2	#	SUPERSCRIPT TWO
+0x52	0x03A3	#	GREEK CAPITAL LETTER SIGMA
+0x53	0x00D7	#	MULTIPLICATION SIGN
+0x54	0x00B3	#	SUPERSCRIPT THREE
+0x55	0x03A5	#	GREEK CAPITAL LETTER UPSILON
+0x56	0x03A6	#	GREEK CAPITAL LETTER PHI
+0x57	0x00B7	#	MIDDLE DOT
+0x58	0x03A8	#	GREEK CAPITAL LETTER PSI
+0x59	0x03A9	#	GREEK CAPITAL LETTER OMEGA
+0x5A	0x2205	#	EMPTY SET
+0x5B	0x20D1	#	COMBINING RIGHT HARPOON ABOVE
+0x5C	0x221A	#	SQUARE ROOT
+0x5D	0x0192	#	LATIN SMALL LETTER F WITH HOOK
+0x5E	0x221D	#	PROPORTIONAL TO
+0x5F	0x00B1	#	PLUS-MINUS SIGN
+0x60	0x00B0	#	DEGREE SIGN
+0x61	0x03B1	#	GREEK SMALL LETTER ALPHA
+0x62	0x03B2	#	GREEK SMALL LETTER BETA
+0x63	0x03B3	#	GREEK SMALL LETTER GAMMA
+0x64	0x03B4	#	GREEK SMALL LETTER DELTA
+0x65	0x03B5	#	GREEK SMALL LETTER EPSILON
+0x66	0x03B6	#	GREEK SMALL LETTER ZETA
+0x67	0x03B7	#	GREEK SMALL LETTER ETA
+0x68	0x03B8	#	GREEK SMALL LETTER THETA
+0x69	0x03B9	#	GREEK SMALL LETTER IOTA
+0x6A	0x03BA	#	GREEK SMALL LETTER KAPPA
+0x6B	0x03BB	#	GREEK SMALL LETTER LAMDA
+0x6C	0x03BC	#	GREEK SMALL LETTER MU
+0x6D	0x03BD	#	GREEK SMALL LETTER NU
+0x6E	0x03BE	#	GREEK SMALL LETTER XI
+0x6F	0x2030	#	PER MILLE SIGN
+0x70	0x03C0	#	GREEK SMALL LETTER PI
+0x71	0x03C1	#	GREEK SMALL LETTER RHO
+0x72	0x03C3	#	GREEK SMALL LETTER SIGMA
+0x73	0x00F7	#	DIVISION SIGN
+0x74	0x03C4	#	GREEK SMALL LETTER TAU
+0x75	0x03C5	#	GREEK SMALL LETTER UPSILON
+0x76	0x03C6	#	GREEK SMALL LETTER PHI
+0x77	0x03C7	#	GREEK SMALL LETTER CHI
+0x78	0x03C8	#	GREEK SMALL LETTER PSI
+0x79	0x03C9	#	GREEK SMALL LETTER OMEGA
+0x7A	0x2020	#	DAGGER
+0x7B	0x2190	#	LEFTWARDS ARROW
+0x7C	0x2191	#	UPWARDS ARROW
+0x7D	0x2192	#	RIGHTWARDS ARROW
+0x7E	0x2193	#	DOWNWARDS ARROW
+0x7F	0x203E	#	OVERLINE

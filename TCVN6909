@@ -1,0 +1,11 @@
+# This UCS repertoire is specified in Vietnamese standard TCVN 6909:2001
+
+# Plane 00
+# Rows  Positions (Cells)
+
+  00    20-7E A0 C0-C3 C8-CA CC-CD D2-D5 D9-DA DD E0-E3 E8-EA EC-ED F2-F5
+  00    F9-FA FD
+  01    02-03 10-11 28-29 68-69 A0-A1 AF-B0
+  03    00-03 06 09 1B 23
+  1E    A0-F9
+  20    1C-1D

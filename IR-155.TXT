@@ -1,0 +1,54 @@
+#
+#	Name:             ISO IR 155 to Unicode
+#	Unicode version:  2.1
+#	Table version:    1.0
+#	Table format:     Format A
+#	Date:             13 August 1998
+#	Authors:          Markus Kuhn <http://www.cl.cam.ac.uk/~mgk25/>
+#
+#	General notes:
+#
+#	This table contains the data the Unicode Consortium has on how
+#	Character Set 155 (Basic Box-Drawing Set) from the
+#	ISO 2375 International Register of Coded Character Sets maps
+#	into Unicode. This character set is also one of the sets specified
+#	in ISO/IEC 10367.
+#
+#	Format:  Three tab-separated columns
+#		 Column #1 is the ISO IR 155 code (in hex as 0xXX)
+#		 Column #2 is the Unicode (in hex as 0xXXXX)
+#		 Column #3 the Unicode name (follows a comment sign, '#')
+#
+#	The entries are in ISO IR 155 order
+#
+#	Any comments or problems, contact <errata@unicode.org>
+#
+0x40	0x2503	#	BOX DRAWINGS HEAVY VERTICAL
+0x41	0x2501	#	BOX DRAWINGS HEAVY HORIZONTAL
+0x42	0x250F	#	BOX DRAWINGS HEAVY DOWN AND RIGHT
+0x43	0x2513	#	BOX DRAWINGS HEAVY DOWN AND LEFT
+0x44	0x2517	#	BOX DRAWINGS HEAVY UP AND RIGHT
+0x45	0x251B	#	BOX DRAWINGS HEAVY UP AND LEFT
+0x46	0x2523	#	BOX DRAWINGS HEAVY VERTICAL AND RIGHT
+0x47	0x252B	#	BOX DRAWINGS HEAVY VERTICAL AND LEFT
+0x48	0x2533	#	BOX DRAWINGS HEAVY DOWN AND HORIZONTAL
+0x49	0x253B	#	BOX DRAWINGS HEAVY UP AND HORIZONTAL
+0x4A	0x254B	#	BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL
+0x4B	0x2580	#	UPPER HALF BLOCK
+0x4C	0x2584	#	LOWER HALF BLOCK
+0x4D	0x2588	#	FULL BLOCK
+0x4E	0x25A0	#	BLACK SQUARE
+0x50	0x2502	#	BOX DRAWINGS LIGHT VERTICAL
+0x51	0x2500	#	BOX DRAWINGS LIGHT HORIZONTAL
+0x52	0x250C	#	BOX DRAWINGS LIGHT DOWN AND RIGHT
+0x53	0x2510	#	BOX DRAWINGS LIGHT DOWN AND LEFT
+0x54	0x2514	#	BOX DRAWINGS LIGHT UP AND RIGHT
+0x55	0x2518	#	BOX DRAWINGS LIGHT UP AND LEFT
+0x56	0x251C	#	BOX DRAWINGS LIGHT VERTICAL AND RIGHT
+0x57	0x2524	#	BOX DRAWINGS LIGHT VERTICAL AND LEFT
+0x58	0x252C	#	BOX DRAWINGS LIGHT DOWN AND HORIZONTAL
+0x59	0x2534	#	BOX DRAWINGS LIGHT UP AND HORIZONTAL
+0x5A	0x253C	#	BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL
+0x5B	0x2591	#	LIGHT SHADE
+0x5C	0x2592	#	MEDIUM SHADE
+0x5D	0x2593	#	DARK SHADE

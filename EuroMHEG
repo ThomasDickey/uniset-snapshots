@@ -1,0 +1,16 @@
+# 312 character "Extended Latin set" from the EuroMHEG 1.0 spec (1999-03-08),
+# Section 3.4 of http://www.dtg.org.uk/reference/mheg/euromheg1.pdf
+
+# Plane 00
+# Rows  Positions (Cells)
+
+  00    20-5D 5F 61-7E A0-A1 A3 A5 A9-AA AE B0 B7 BA BC-FF
+  01    00-13 16-2B 2E-48 4A-4D 52-6F 72-7E CD-CE
+  1E    80-85 F2-F3
+  20    18-19 1C-1D 22 44 AC
+  21    90-93
+  22    1E
+  26    6B
+  27    13 17
+
+# Number of characters in above table: 312

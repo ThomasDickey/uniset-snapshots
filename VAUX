@@ -1,0 +1,45 @@
+# Characters to be added to VSECS in addition to ISO 8859 2-4, and CP1252.
+
+# useful for software user interfaces
+
+2190 # LEFTWARDS ARROW
+2191 # UPWARDS ARROW
+2192 # RIGHTWARDS ARROW
+2193 # DOWNWARDS ARROW
+FFFD # REPLACEMENT CHARACTER                
+
+# SCHWA is a character needed for Azerbaijani (together with ISO
+# 8859-9), spoken by 7 million people in Azerbaijan, which is likely
+# to become a major trading partner of many European countries and
+# companies, given its existing role as an oil supplier and its likely
+# future role as one of the largest and nearest oil suppliers to the
+# rest of Europe. There are attempts to get SCHWA into ISO 8859 as
+# well. Information by John Clews <European@sesame.demon.co.uk>
+
+018F # LATIN CAPITAL LETTER SCHWA
+0259 # LATIN SMALL LETTER SCHWA
+
+# could be added for better ISO/IEC 6937 compatibility but are otherwise
+# probably not very useful are therefore currently excluded
+
+# 02DA # RING ABOVE
+# 2015 # HORIZONTAL BAR
+# 2126 # OHM SIGN
+# 215B # VULGAR FRACTION ONE EIGHTH
+# 215C # VULGAR FRACTION THREE EIGHTHS
+# 215D # VULGAR FRACTION FIVE EIGHTHS
+# 215E # VULGAR FRACTION SEVEN EIGHTHS
+# 266A # EIGHTH NOTE
+
+# The following five characters got into ISO/IEC 6937 only by a
+# misunderstanding and are not used anywhere, so we don't include them.
+# LIGATURE IJ is deprecated in the Netherlands according to a 1995
+# NL government report by Johan W. van Wingen (ISBN 90-5414-019-4).
+# The other three are not required for Catalan/Afrikaans as originally
+# assumed.
+
+# 0132 # LATIN CAPITAL LIGATURE IJ
+# 0133 # LATIN SMALL LIGATURE IJ
+# 013F # LATIN CAPITAL LETTER L WITH MIDDLE DOT
+# 0140 # LATIN SMALL LETTER L WITH MIDDLE DOT
+# 0149 # LATIN SMALL LETTER N PRECEDED BY APOSTROPHE
