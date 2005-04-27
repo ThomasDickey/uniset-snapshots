@@ -1,3 +1,27 @@
+2005-04-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-uniset_cjk: RCS_BASE
+
+	* Blocks.txt: update to Blocks-4.1.0.txt
+
+	* run-uniset: RCS_BASE
+
+2005-04-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* UnicodeData.txt: update to UnicodeData.txt 4.1.0
+
+	* EastAsianWidth.txt: update to EastAsianWidth-4.1.0.txt
+
+2004-11-28  mgk25
+
+	* DEC-VT100.TXT: contact-info
+
+	* 8859-11.TXT:
+	Markus updated his contact info without updating the external data.
+	This is a step backwards.
+
+	* 8859-14.TXT, 8859-15.TXT, 8859-16.TXT: contact-info
+
 2004-04-10  mgk25
 
 	* uniset: Markus Kuhn's "uniset" scripts with data from unicode.org
