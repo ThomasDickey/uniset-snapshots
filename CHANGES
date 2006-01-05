@@ -1,3 +1,9 @@
+2006-01-05  mgk25
+
+	* Blocks.txt, EastAsianWidth.txt, MATH, UnicodeData.txt:
+	Markus updated his contact info without updating the external data.
+	This is a step backwards.
+
 2005-04-27  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* run-uniset_cjk: RCS_BASE
