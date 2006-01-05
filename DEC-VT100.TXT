@@ -17,8 +17,6 @@
 #                Column #2 is the Unicode (in hex as 0xXXXX)
 #                Column #3 the Unicode name (follows a comment sign, '#')
 #
-#	Any comments or problems, contact <mkuhn@acm.org>.
-#
 0x01	0x25C6	#	BLACK DIAMOND
 0x02	0x2592	#	MEDIUM SHADE
 0x03	0x2409	#	SYMBOL FOR HORIZONTAL TABULATION

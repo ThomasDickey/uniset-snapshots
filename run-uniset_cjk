@@ -1,2 +1,0 @@
-#!/bin/sh
-uniset +WIDTH-A -cat=Me -cat=Mn -cat=Cf c
