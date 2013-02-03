@@ -1,3 +1,10 @@
+2013-02-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-uniset_cjk: account for extended ranges of Unicode data
+
+	* WIDTH-A, Blocks.txt, EastAsianWidth.txt, UnicodeData.txt:
+	update to Unicode 6.2.0
+
 2006-01-05  mgk25
 
 	* Blocks.txt, EastAsianWidth.txt, MATH, UnicodeData.txt:

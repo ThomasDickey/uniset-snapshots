@@ -1,0 +1,5 @@
+#!/bin/sh
+uniset +WIDTH-A -cat=Me -cat=Mn -cat=Cf \
+   +E000..F8FF \
+   +F0000..FFFFD \
+   +100000..10FFFD  c
