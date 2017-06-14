@@ -1,3 +1,40 @@
+2017-06-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset: finally, turn on diagnostics.
+
+	* uniset: finished "strict"
+
+	* uniset: fix most remaining strict-warnings
+
+	* uniset: typo
+
+	* uniset: fix about 1/4 of the strict-warnings
+
+	* uniset: use warnings, fix resulting warning about undefined value.
+
+	* uniset: indent'd
+
+	* makefile: add "check" rule
+
+	* run-WIDTH-A: provide default parameter
+
+	* WIDTH-A: regen with Unicode 9.0.0d
+
+	* uniset_cjk.out, uniset.out, makefile, run-WIDTH-A: RCS_BASE
+
+2017-04-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Blocks.txt: Unicode 10.0.0 released 2017-06-19
+
+2017-03-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* EastAsianWidth.txt, UnicodeData.txt:
+	Unicode 10.0.0 released 2017-06-19
+
+2016-05-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Blocks.txt, EastAsianWidth.txt, UnicodeData.txt: Unicode-9.0.0d2
+
 2013-02-03  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* run-uniset_cjk: account for extended ranges of Unicode data
