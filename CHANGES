@@ -1,3 +1,17 @@
+2017-06-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset: add comparison for Vertical forms, from xterm
+
+	* makefile: add "uniset_unk"
+
+	* uniset_unk.out, run-uniset_unk: RCS_BASE
+
+	* run-uniset_cjk: generate xterm source, for cut/paste
+
+	* run-uniset: generate xterm source for cut/paste.
+
+	* uniset.out, uniset_cjk.out: format to match xterm
+
 2017-06-13  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset: finally, turn on diagnostics.

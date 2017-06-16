@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 # Uniset -- Unicode subset manager -- Markus Kuhn
 # http://www.cl.cam.ac.uk/~mgk25/download/uniset.tar.gz
-# $Id: uniset,v 1.25 2017/06/14 01:46:42 tom Exp $
+# $Id: uniset,v 1.26 2017/06/16 01:06:10 tom Exp $
 
 require 5.008;
 
@@ -98,6 +98,7 @@ sub iswide ($) {
             ||                   # CJK .. Yi
             ( $ucs >= 0xac00 && $ucs <= 0xd7a3 ) ||    # Hangul Syllables
             ( $ucs >= 0xf900 && $ucs <= 0xfaff ) ||    # CJK Comp. Ideographs
+            ( $ucs >= 0xfe10 && $ucs <= 0xfe19 ) ||    # Vertical forms
             ( $ucs >= 0xfe30 && $ucs <= 0xfe6f ) ||    # CJK Comp. Forms
             ( $ucs >= 0xff00 && $ucs <= 0xff60 ) ||    # Fullwidth Forms
             ( $ucs >= 0xffe0 && $ucs <= 0xffe6 )
