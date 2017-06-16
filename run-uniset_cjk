@@ -2,4 +2,5 @@
 uniset +WIDTH-A -cat=Me -cat=Mn -cat=Cf \
    +E000..F8FF \
    +F0000..FFFFD \
-   +100000..10FFFD  c
+   +100000..10FFFD  c |\
+awk '(NR==1){sub("{","static const struct interval ambiguous[] = {"); }{sub("^","  ");print;}'

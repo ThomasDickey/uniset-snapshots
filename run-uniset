@@ -1,2 +1,3 @@
 #!/bin/sh
-uniset +cat=Me +cat=Mn +cat=Cf -00AD +1160-11FF +200B c
+uniset +cat=Me +cat=Mn +cat=Cf -00AD +1160-11FF +200B c | \
+awk '(NR==1){sub("{","static const struct interval combining[] = {"); }{sub("^","  ");print;}'

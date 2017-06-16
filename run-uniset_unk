@@ -1,0 +1,3 @@
+#!/bin/sh
+uniset +0000..10FFFD unknown c | \
+awk '(NR==1){sub("{","static const struct interval unknowns[] = {"); }{sub("^","  ");print;}'
