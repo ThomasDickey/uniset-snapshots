@@ -1,3 +1,3 @@
 #!/bin/sh
-uniset +0000..10FFFD unknown c | \
+uniset +0000..DFFF -4e00..9fd5 +F900..10FFFD unknown +2028..2029 c | \
 awk '(NR==1){sub("{","static const struct interval unknowns[] = {"); }{sub("^","  ");print;}'

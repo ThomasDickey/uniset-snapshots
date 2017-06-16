@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 # Uniset -- Unicode subset manager -- Markus Kuhn
 # http://www.cl.cam.ac.uk/~mgk25/download/uniset.tar.gz
-# $Id: uniset,v 1.26 2017/06/16 01:06:10 tom Exp $
+# $Id: uniset,v 1.29 2017/06/16 20:25:09 tom Exp $
 
 require 5.008;
 
@@ -41,6 +41,7 @@ Commands to define a set of characters:
 Command to output descriptions of the constructed set of characters:
 
   table        write a full table with one line per character
+  categories   list categories, with counts
   compact      output the set in compact MES format
   c            output the set as C interval array
   nr           output the number of characters
@@ -96,6 +97,7 @@ sub iswide ($) {
                 && $ucs <= 0xa4cf
                 && $ucs != 0x303f )
             ||                   # CJK .. Yi
+            ( $ucs >= 0xa960 && $ucs <= 0xa97f ) ||    # Hangul Jamo Extended-A
             ( $ucs >= 0xac00 && $ucs <= 0xd7a3 ) ||    # Hangul Syllables
             ( $ucs >= 0xf900 && $ucs <= 0xfaff ) ||    # CJK Comp. Ideographs
             ( $ucs >= 0xfe10 && $ucs <= 0xfe19 ) ||    # Vertical forms
@@ -298,7 +300,7 @@ while ( $_ = shift(@ARGV) ) {
         }
     }
     elsif (/^([+-]):(.*)/) {
-        my $remove = $1 eq "-";
+        my $remove  = $1 eq "-";
         my $setfile = $2;
         $setfile = shift(@ARGV) if $setfile eq "";
         push( @SETS, $setfile );
@@ -315,7 +317,7 @@ while ( $_ = shift(@ARGV) ) {
         close SET;
     }
     elsif (/^([+-])(.*)/) {
-        my $remove = $1 eq "-";
+        my $remove  = $1 eq "-";
         my $setfile = $2;
         $setfile = "$setfile..$setfile" if $setfile =~ /^([0-9A-Fa-f]{4,8})$/;
         if ( $setfile =~ /^([0-9A-Fa-f]{4,8})(-|\.\.)([0-9A-Fa-f]{4,8})$/ ) {
@@ -622,7 +624,9 @@ while ( $_ = shift(@ARGV) ) {
           if $html;
         my %contribs;
         for my $i ( keys(%used) ) {
-            next if ( $name{$i} eq "<control>" );
+            if ( $name{$i} ) {
+                next if ( $name{$i} eq "<control>" );
+            }
             my $sources = $used{$i};
             $sources =~ s/\]\[/, /g;
             $sources =~ s/^\[//g;
@@ -634,6 +638,18 @@ while ( $_ = shift(@ARGV) ) {
             print "<TR><TD>$contribs{$j}<TD>$j\n" if $html;
         }
         print "</TABLE>\n" if $html;
+    }
+    elsif (/^categories$/) {
+        my %categories;
+        for my $ucs ( keys %category ) {
+            my $category = $category{$ucs};
+            $categories{$category} += 1;
+        }
+        my @keys = sort keys %categories;
+        printf "Number of categories: %d\n", $#keys + 1;
+        for my $n ( 0 .. $#keys ) {
+            printf "\t%s %6d\n", $keys[$n], $categories{ $keys[$n] };
+        }
     }
     elsif (/^compact$/) {
         my $len;
@@ -648,7 +664,10 @@ while ( $_ = shift(@ARGV) ) {
         my $start_col   = '';
         my $last_col    = '';
         for my $i ( sort( { $a <=> $b } keys(%used) ) ) {
-            next if ( $name{$i} eq "<control>" );
+
+            if ( $name{$i} ) {
+                next if ( $name{$i} eq "<control>" );
+            }
             my $row = sprintf( "%02X", $i >> 8 );
             my $col = sprintf( "%02X", $i & 0xff );
             if ( $row ne $current_row ) {
@@ -731,7 +750,9 @@ while ( $_ = shift(@ARGV) ) {
         my $block = 0;
         my $last  = -1;
         for my $i ( sort( { $a <=> $b } keys(%used) ) ) {
-            next if ( $name{$i} eq "<control>" );
+            if ( $name{$i} ) {
+                next if ( $name{$i} eq "<control>" );
+            }
             while ( $blockend[$block] < $i && $block < $blocks - 1 ) {
                 $block++;
             }
@@ -773,7 +794,9 @@ while ( $_ = shift(@ARGV) ) {
         my $block = 0;
         my $last  = -1;
         for my $i ( sort( { $a <=> $b } keys(%used) ) ) {
-            next if ( $name{$i} eq "<control>" );
+            if ( $name{$i} ) {
+                next if ( $name{$i} eq "<control>" );
+            }
             while ( $blockend[$block] < $i && $block < $blocks - 1 ) {
                 $block++;
             }
