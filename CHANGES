@@ -1,3 +1,20 @@
+2017-06-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset_unk.out: regen
+
+	* run-uniset_unk:
+	add 2028/2029 (Zs, Zp) to "unknowns" (treat as controls)
+
+	* uniset: add "categories"
+
+	* uniset: add a double-wide range
+
+	* uniset_unk.out, run-uniset_unk: exclude some double-wide's
+
+	* uniset: "temporary"(?) workaround for missing names
+
+	* uniset_unk.out, run-uniset_unk: exclude private-use-0
+
 2017-06-15  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset: add comparison for Vertical forms, from xterm
