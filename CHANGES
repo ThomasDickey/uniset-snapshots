@@ -1,3 +1,7 @@
+2017-06-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset_unk.out, uniset.out: regen:unicode-10
+
 2017-06-16  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset_unk.out: regen
