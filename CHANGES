@@ -1,9 +1,28 @@
+2018-12-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset.out: regen
+
+	* run-uniset:
+	add these Mc's as combining characters: U+1929 to U+192B, and U+302E to U+302F
+
 2018-08-08  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset_cjk.out: regen after fix for ranges in WIDTH-A
 
 	* uniset:
 	modify pattern to allow the range-expressions in WIDTH-A to work
+
+2018-05-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* EastAsianWidth.txt: from:Unicode-11
+
+2018-05-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* UnicodeData.txt: from:Unicode-11
+
+2017-10-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Blocks.txt: from:Unicode-11
 
 2017-06-20  Thomas E. Dickey  <dickey@invisible-island.net>
 
