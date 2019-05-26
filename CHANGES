@@ -1,3 +1,11 @@
+2019-05-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset_unk.out: regen
+
+2019-05-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* UnicodeData.txt, EastAsianWidth.txt, Blocks.txt: unicode-12.1.0
+
 2019-04-29  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset_unk.out, uniset.out: regen
