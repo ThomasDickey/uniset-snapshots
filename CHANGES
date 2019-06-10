@@ -1,3 +1,38 @@
+2019-06-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset.out: regen
+
+	* run-uniset: allow two ranges which use Mc (spacing combining mark)
+
+	* uniset_dbl.out: RCS_BASE
+
+	* WIDTH-W: regen after adding "F" width
+
+	* uniset:
+	modify pattern to allow the range-expressions in WIDTH-W to work
+
+	* run-WIDTH-W: add "F" width
+
+	* WIDTH-W:
+	revised to use as done with WIDTH-A, to generate binary-search data
+
+	* uniset_unk.out, uniset_cjk.out, WIDTH-A, uniset.out: regen
+
+	* run-WIDTH-W: RCS_BASE
+
+	* makefile: add rules for WIDTH-W, etc.
+
+	* run-uniset_unk, run-uniset_cjk, run-uniset:
+	add name of generating script to output
+
+	* run-uniset_dbl: RCS_BASE
+
+	* run-WIDTH-A: trim obsolete comment
+
+	* uniset: modify iswide() to match current comparisons in wcwidth.c
+
+	* uniset: reformatted some long regex's for readability
+
 2019-05-25  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset_unk.out: regen
