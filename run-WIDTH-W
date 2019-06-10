@@ -1,0 +1,13 @@
+#!/bin/sh
+[ $# = 0 ] && exec $0 EastAsianWidth.txt 
+cat <<EOF
+# vile:tblmode
+# "WIDTH-W" is a file extracted from EastAsianWidth.txt by selecting
+# only those with width "F" or "W", and omitting:
+#
+#	all lines with "COMBINING"
+#
+EOF
+
+grep -E "^[[:xdigit:].]+;[FW][[:space:]]" "$@" | \
+grep -F -v COMBINING

@@ -9,8 +9,6 @@ cat <<EOF
 #	0xAD
 #	all lines with "COMBINING"
 #
-# (uniset does not recognize the range expressions in WIDTH-A).
-#
 EOF
 
 grep -E "^[[:xdigit:].]+;A[[:space:]]" "$@" | grep -F -v COMBINING

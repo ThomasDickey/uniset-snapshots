@@ -6,8 +6,6 @@
 #	0xAD
 #	all lines with "COMBINING"
 #
-# (uniset does not recognize the range expressions in WIDTH-A).
-#
 00A1;A           # Po         INVERTED EXCLAMATION MARK
 00A4;A           # Sc         CURRENCY SIGN
 00A7;A           # Po         SECTION SIGN
