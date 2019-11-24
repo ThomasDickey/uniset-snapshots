@@ -1,0 +1,54 @@
+-- $Id: README,v 1.1 2019/11/24 13:21:51 tom Exp $
+# Copyright 2019, Thomas E. Dickey
+
+These scripts (and the associated data) are used for periodic updates to
+xterm's wcwidth.c file.  A comment in the file refers to these scripts:
+--------------------------------------------------------------------------------
+ * Originally added to xterm in 2000 (patch #141), there were a couple of
+ * updates from Kuhn until 2005 (patch #202), renaming entrypoints and applying
+ * data from Unicode.org (e.g., 3.2, 4.0, 4.1.0).  The Unicode data is
+ * transformed into tables in this file by a script "uniset" written by Kuhn.
+ *
+ * While Kuhn implemented the original CJK variant, it was unused by xterm
+ * until Jungshik Shin used it in 2002 to implement the -cjk_width command-line
+ * option.
+ *
+ * Kuhn added a check for the vertical forms block (double-width) in 2007;
+ * other updates were derived from the Unicode.org data (release 5.0).
+--------------------------------------------------------------------------------
+
+See 00README for Kuhn's original description of the scripts.
+
+The uniset scripts transform the Unicode data into a table of ranges for the
+character-values, which (with a few special cases) gives xterm a portable
+method for obtaining character widths.  At runtime, xterm can be told to use
+these tables in preference to (possibly old) system tables of character
+widths.
+
+When a new release of the Unicode data is available, I get a copy of it.
+For instance, the last 2019 release was 12.1.0, here:
+
+	ftp://ftp.unicode.org/Public/12.1.0/ucd/UCD.zip
+
+Unzipping that into "this" directory, and running
+
+	make clean
+	make
+
+gives these chunks which can be used to replace corresponding text in
+xterm's wcwidth.c file:
+
+uniset.out:
+  static const struct interval combining[] = {
+
+uniset_cjk.out:
+  static const struct interval ambiguous[] = {
+
+uniset_dbl.out:
+  static const struct interval doublewidth[] = {
+
+uniset_unk.out:
+  static const struct interval unknowns[] = {
+
+NOTE: there are other data files in this directory which are of historical
+interest, and are retained here because they are less accessible than before.
