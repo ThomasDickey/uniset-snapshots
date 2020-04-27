@@ -1,3 +1,12 @@
+2020-04-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset_unk.out, WIDTH-W, uniset_cjk.out, uniset_dbl.out, uniset.out:
+	regen:unicode-13.0.0
+
+2020-01-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* EastAsianWidth.txt: unicode-13.0.0
+
 2019-11-24  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* README: RCS_BASE
@@ -6,6 +15,14 @@
 	add copyright/license
 
 	* LICENSE: RCS_BASE
+
+2019-10-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* UnicodeData.txt: unicode-13.0.0
+
+2019-07-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Blocks.txt: unicode-13.0.0
 
 2019-06-10  Thomas E. Dickey  <dickey@invisible-island.net>
 
