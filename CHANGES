@@ -1,3 +1,18 @@
+2021-06-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset_unk.out, uniset_dbl.out, WIDTH-W, uniset.out:
+	regen:unicode-14.0.0
+
+2021-06-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* EastAsianWidth.txt: from EastAsianWidth-14.0.0d8.txt
+
+	* UnicodeData.txt: from UnicodeData-14.0.0d12.txt
+
+2021-01-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Blocks.txt: from Blocks-14.0.0d4.txt
+
 2020-04-27  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset_unk.out, WIDTH-W, uniset_cjk.out, uniset_dbl.out, uniset.out:
