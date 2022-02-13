@@ -1,3 +1,15 @@
+2022-02-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset.out: regen
+
+	* run-uniset:
+	add special case for Hangul Jamo Extended-B, from Unicode 5.2.0 (March 2008)
+	which was incorporated into glibc (June 2020), report by Luis Javier Merino
+
+2021-07-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* UnicodeData.txt, EastAsianWidth.txt: from Unicode-14.0.0
+
 2021-06-12  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset_unk.out, uniset_dbl.out, WIDTH-W, uniset.out:
@@ -26,7 +38,8 @@
 
 	* README: RCS_BASE
 
-	* makefile, run-uniset_unk, run-WIDTH-W, run-WIDTH-A, uniset, run-uniset, run-uniset_dbl, run-uniset_cjk:
+	* makefile, run-uniset_unk, run-WIDTH-W, run-WIDTH-A, uniset,
+	  run-uniset_cjk:
 	add copyright/license
 
 	* LICENSE: RCS_BASE
@@ -290,7 +303,15 @@
 
 2001-02-27  mgk25
 
-	* NEXTSTEP.TXT, IBMGRAPH.TXT, CP1258.TXT, CP1257.TXT, CP1256.TXT, CP1255.TXT, CP1254.TXT, CP1253.TXT, CP1252.TXT, CP1251.TXT, CP1250.TXT, CP874.TXT, CP869.TXT, CP866.TXT, CP865.TXT, CP864.TXT, CP863.TXT, CP862.TXT, CP861.TXT, CP860.TXT, CP857.TXT, CP855.TXT, CP852.TXT, CP850.TXT, CP775.TXT, CP737.TXT, CP437.TXT, TURKISH.TXT, ROMAN.TXT, LATIN2.TXT, ICELAND.TXT, GREEK.TXT, CYRILLIC.TXT, CP875.TXT, CP500.TXT, CP1026.TXT, CP037.TXT, 8859-9.TXT, 8859-8.TXT, 8859-6.TXT, 8859-5.TXT, 8859-4.TXT, 8859-3.TXT, 8859-2.TXT, 8859-15.TXT, 8859-14.TXT, 8859-13.TXT, 8859-10.TXT, 8859-1.TXT:
+	* NEXTSTEP.TXT, IBMGRAPH.TXT, CP1258.TXT, CP1257.TXT, CP1256.TXT,
+	  CP1255.TXT, CP1254.TXT, CP1253.TXT, CP1252.TXT, CP1251.TXT,
+	  CP1250.TXT, CP874.TXT, CP869.TXT, CP866.TXT, CP865.TXT, CP864.TXT,
+	  CP863.TXT, CP862.TXT, CP861.TXT, CP860.TXT, CP857.TXT, CP855.TXT,
+	  CP852.TXT, CP850.TXT, CP775.TXT, CP737.TXT, CP437.TXT, TURKISH.TXT,
+	  ROMAN.TXT, LATIN2.TXT, ICELAND.TXT, GREEK.TXT, CYRILLIC.TXT,
+	  CP875.TXT, CP500.TXT, CP1026.TXT, CP037.TXT, 8859-9.TXT, 8859-8.TXT,
+	  8859-6.TXT, 8859-5.TXT, 8859-4.TXT, 8859-3.TXT, 8859-2.TXT,
+	  8859-1.TXT:
 	RCS_BASE
 
 2000-03-09  mgk25
