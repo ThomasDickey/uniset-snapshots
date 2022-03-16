@@ -1,3 +1,10 @@
+2022-03-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset.out: regen
+
+	* run-uniset:
+	amend the last change, to list only the currently-defined codepoints
+
 2022-02-13  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset.out: regen
