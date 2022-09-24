@@ -1,6 +1,6 @@
-# $Revision: 1.5 $
+# $Revision: 1.6 $
 # -----------------------------------------------------------------------------
-# Copyright 2017,2019 Thomas E. Dickey
+# Copyright 2017-2019,2022 Thomas E. Dickey
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,7 @@
 ALL	= \
 	uniset.out \
 	uniset_cjk.out \
+	uniset_ctl.out \
 	uniset_dbl.out \
 	uniset_unk.out
 
@@ -33,6 +34,9 @@ uniset.out: UnicodeData.txt
 
 uniset_cjk.out: UnicodeData.txt WIDTH-A
 	./run-uniset_cjk >$@
+
+uniset_ctl.out: UnicodeData.txt
+	./run-uniset_ctl >$@
 
 uniset_dbl.out: UnicodeData.txt WIDTH-W
 	./run-uniset_dbl >$@
@@ -55,6 +59,6 @@ clobber: clean
 	rm -f WIDTH-[AW]
 
 check:
-	@$(SHELL) -c 'for n in uniset uniset_cjk uniset_unk;do echo Testing $$n; ./run-$$n >$$n.tmp;diff -u $$n.out $$n.tmp;done'
+	@$(SHELL) -c 'for n in $(ALL:.out=);do echo Testing $$n; ./run-$$n >$$n.tmp;diff -u $$n.out $$n.tmp;done'
 	@$(SHELL) -c 'for n in WIDTH-[AW];do echo Testing $$n; ./run-$$n >$$n.tmp;diff -u $$n $$n.tmp;done'
 	@rm -f *.tmp
