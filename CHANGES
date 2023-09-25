@@ -1,3 +1,29 @@
+2023-09-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset: copyright
+
+	* uniset_cjk.out, uniset_dbl.out: regen
+
+	* uniset:
+	EastAsianWidth.txt now has whitespace around the ";", to align columns.
+
+2023-09-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset: make the pnm case more readable, with a variable
+
+	* uniset: indent (minor whitespace fixes)
+
+	* uniset_unk.out, WIDTH-W, uniset_dbl.out, WIDTH-A, uniset.out,
+	  uniset_cjk.out, uniset_ctl.out:
+	regen
+
+	* run-WIDTH-A, run-WIDTH-W:
+	Unicode 15 uses spaces on either side of ";"
+
+2023-08-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* UnicodeData.txt, Blocks.txt, EastAsianWidth.txt: from Unicode-15.1.0
+
 2022-09-23  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset.out: regen after splitting-out uniset_ctl
@@ -7,6 +33,14 @@
 	* uniset_ctl.out, run-uniset_ctl: RCS_BASE
 
 	* run-uniset: move "Cf" (formatting) category to uniset_ctl script
+
+2022-08-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* UnicodeData.txt: from Unicode-15.0.0
+
+2022-05-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* EastAsianWidth.txt: from Unicode-15.0.0
 
 2022-03-16  Thomas E. Dickey  <dickey@invisible-island.net>
 
@@ -22,6 +56,10 @@
 	* run-uniset:
 	add special case for Hangul Jamo Extended-B, from Unicode 5.2.0 (March 2008)
 	which was incorporated into glibc (June 2020), report by Luis Javier Merino
+
+2022-01-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Blocks.txt: from Unicode-15.0.0
 
 2021-07-06  Thomas E. Dickey  <dickey@invisible-island.net>
 
@@ -56,7 +94,7 @@
 	* README: RCS_BASE
 
 	* makefile, run-uniset_unk, run-WIDTH-W, run-WIDTH-A, uniset,
-	  run-uniset_cjk:
+	  run-uniset, run-uniset_dbl, run-uniset_cjk:
 	add copyright/license
 
 	* LICENSE: RCS_BASE
@@ -328,7 +366,7 @@
 	  ROMAN.TXT, LATIN2.TXT, ICELAND.TXT, GREEK.TXT, CYRILLIC.TXT,
 	  CP875.TXT, CP500.TXT, CP1026.TXT, CP037.TXT, 8859-9.TXT, 8859-8.TXT,
 	  8859-6.TXT, 8859-5.TXT, 8859-4.TXT, 8859-3.TXT, 8859-2.TXT,
-	  8859-1.TXT:
+	  8859-15.TXT, 8859-14.TXT, 8859-13.TXT, 8859-10.TXT, 8859-1.TXT:
 	RCS_BASE
 
 2000-03-09  mgk25

@@ -1,7 +1,7 @@
 #!/bin/sh
-# $Revision: 1.3 $
+# $Revision: 1.4 $
 # -----------------------------------------------------------------------------
-# Copyright 2019 Thomas E. Dickey
+# Copyright 2019,2023 Thomas E. Dickey
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -31,5 +31,5 @@ cat <<EOF
 #
 EOF
 
-grep -E "^[[:xdigit:].]+;[FW][[:space:]]" "$@" | \
+grep -E "^[[:xdigit:].]+[[:space:]]*;[[:space:]]*[FW][[:space:]]" "$@" | \
 grep -F -v COMBINING

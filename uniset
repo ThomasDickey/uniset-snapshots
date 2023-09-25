@@ -1,9 +1,9 @@
 #!/usr/bin/env perl
-# Copyright 2004-2017,2019, Thomas E. Dickey
+# Copyright 2004-2019,2023, Thomas E. Dickey
 ###############################################################################
 # Uniset -- Unicode subset manager -- Markus Kuhn
 # http://www.cl.cam.ac.uk/~mgk25/download/uniset.tar.gz
-# $Id: uniset,v 1.34 2019/11/24 11:40:30 tom Exp $
+# $Id: uniset,v 1.38 2023/09/25 21:57:21 tom Exp $
 
 require 5.008;
 
@@ -432,8 +432,8 @@ while ( $_ = shift(@ARGV) ) {
                 # ignore ftp.unicode.org mapping file lines with #UNDEFINED
                 next;
             }
-            s/^([^\#]*)\#.*$/$1/;    # remove comments
-            next if (/^\032?\s*$/);  # skip empty lines
+            s/^([^\#]*)\#.*$/$1/;      # remove comments
+            next if (/^\032?\s*$/);    # skip empty lines
             if (/^\s*(0X)?([0-9A-F-]{2})\s+(0X|U\+|U-)?([0-9A-F]{4,8})\s*$/) {
 
                 # handle entry from a ftp.unicode.org mapping file
@@ -446,7 +446,7 @@ while ( $_ = shift(@ARGV) ) {
                  (\s*-\s*|\s*\.\.\s*|\s+)
                  (0X|U\+|U-)?
                  ([0-9A-F]{4,8})
-                 (;[AWF])?\s*$/x
+                 (\s*;\s*[AWF])?\s*$/x
               )
             {
 
@@ -543,7 +543,8 @@ while ( $_ = shift(@ARGV) ) {
         }
         my $width = int( sqrt( $count / sqrt(2) ) + 0.5 );
         $width = $1 if /^giftable([0-9]+)$/;
-        system("rm -f tmp-*.pnm table.pnm~ table.pnm");
+        my $anymap = "table.pnm";
+        system("rm -f tmp-*.pnm $anymap~ $anymap");
         my $col = 0;
         my $row = 0;
         for my $i ( sort( { $a <=> $b } keys(%used) ) ) {
@@ -558,30 +559,30 @@ while ( $_ = shift(@ARGV) ) {
             if ( ++$col == $width ) {
                 system("pnmcat -lr tmp-*.pnm | cat >tmp-row.pnm");
                 if ( $row == 0 ) {
-                    system("mv tmp-row.pnm table.pnm");
+                    system("mv tmp-row.pnm $anymap");
                 }
                 else {
-                    system( "mv table.pnm table.pnm~;"
-                          . "pnmcat -tb table.pnm~ tmp-row.pnm >table.pnm" );
+                    system( "mv $anymap $anymap~;"
+                          . "pnmcat -tb $anymap~ tmp-row.pnm >$anymap" );
                 }
                 $row++;
                 $col = 0;
-                system("rm -f tmp-*.pnm table.pnm~");
+                system("rm -f tmp-*.pnm $anymap~");
             }
         }
         if ( $col > 0 ) {
             system("pnmcat -lr tmp-*.pnm | cat >tmp-row.pnm");
             if ( $row == 0 ) {
-                system("mv tmp-row.pnm table.pnm");
+                system("mv tmp-row.pnm $anymap");
             }
             else {
-                system( "mv table.pnm table.pnm~;"
-                      . "pnmcat -tb -jleft -black table.pnm~ tmp-row.pnm >table.pnm"
+                system( "mv $anymap $anymap~;"
+                      . "pnmcat -tb -jleft -black $anymap~ tmp-row.pnm >$anymap"
                 );
             }
         }
-        system("rm -f table.gif ; ppmtogif table.pnm > table.gif");
-        system("rm -f tmp-*.pnm table.pnm~ table.pnm");
+        system("rm -f table.gif ; ppmtogif $anymap > table.gif");
+        system("rm -f tmp-*.pnm $anymap~ $anymap");
     }
     elsif (/^table$/) {
 
@@ -600,7 +601,7 @@ while ( $_ = shift(@ARGV) ) {
                 my $gif = "Small.Glyphs/$1/U$j.gif";
                 print "<TR>";
                 print "<TD><img width=32 height=32 src=\"$gif\">" if $image;
-                printf( "<TD>&#%d;", $i ) if $adducs;
+                printf( "<TD>&#%d;", $i )                         if $adducs;
                 print "<TD><SAMP>$j</SAMP><TD><SAMP>" . name($i);
                 print " ($comment{$i})" if $comment{$i};
                 print "</SAMP><TD><SMALL>$sources</SMALL>\n";
@@ -731,7 +732,7 @@ while ( $_ = shift(@ARGV) ) {
             print "-$last_col";
             print "</SAMP>" if $html;
         }
-        print "\n" if ( $current_row ne '' );
+        print "\n"         if ( $current_row ne '' );
         print "</TABLE>\n" if $html;
         print "\n";
     }
