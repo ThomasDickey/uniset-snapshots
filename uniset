@@ -1,9 +1,9 @@
 #!/usr/bin/env perl
-# Copyright 2004-2019,2023, Thomas E. Dickey
+# Copyright 2004-2023,2024, Thomas E. Dickey
 ###############################################################################
 # Uniset -- Unicode subset manager -- Markus Kuhn
 # http://www.cl.cam.ac.uk/~mgk25/download/uniset.tar.gz
-# $Id: uniset,v 1.38 2023/09/25 21:57:21 tom Exp $
+# $Id: uniset,v 1.40 2024/07/04 23:47:06 tom Exp $
 
 require 5.008;
 
@@ -98,7 +98,7 @@ sub iswide ($) {
             || (   $ucs >= 0x2e80
                 && $ucs <= 0x4dbf
                 && $ucs != 0x303f )
-            ||                   # CJK .. Yi
+            ||                                      # CJK .. Yi
             ( $ucs >= 0x4e00 && $ucs <= 0xa4cf ) || # CJK Unified Ideographs, Yi
             ( $ucs >= 0xa960 && $ucs <= 0xa97f ) || # Hangul Jamo Extended-A
             ( $ucs >= 0xac00 && $ucs <= 0xd7a3 ) || # Hangul Syllables
@@ -404,7 +404,9 @@ while ( $_ = shift(@ARGV) ) {
                 }
                 next;
             }
-            tr/a-z/A-Z/;    # make input uppercase
+            my $comment = $_;    # category in comment is mixed-case
+            chomp $comment;
+            tr/a-z/A-Z/;         # make input uppercase
             if ($cedf) {
                 if ( $. > 4 ) {
                     if (/^([0-9A-F]{2})\t.?\t(.*)$/) {
@@ -432,6 +434,9 @@ while ( $_ = shift(@ARGV) ) {
                 # ignore ftp.unicode.org mapping file lines with #UNDEFINED
                 next;
             }
+            $comment =~ s/^[^\#]*#\s*//;
+            my $notecat = $comment;
+            $notecat =~ s/\s.*//;
             s/^([^\#]*)\#.*$/$1/;      # remove comments
             next if (/^\032?\s*$/);    # skip empty lines
             if (/^\s*(0X)?([0-9A-F-]{2})\s+(0X|U\+|U-)?([0-9A-F]{4,8})\s*$/) {
@@ -453,9 +458,15 @@ while ( $_ = shift(@ARGV) ) {
                 # handle interval specification
                 my $first = hex($2);
                 my $last  = hex($5);
+
                 for ( my $i = $first ; $i <= $last ; $i++ ) {
-                    $used{$i} .= "[${setname}]" unless $remove;
-                    delete $used{$i} if $remove;
+                    if ($remove) {
+                        delete $used{$i};
+                    }
+                    else {
+                        $category{$i} = $notecat if ( $notecat =~ /^..$/ );
+                        $used{$i} .= "[${setname}]";
+                    }
                 }
             }
             elsif (

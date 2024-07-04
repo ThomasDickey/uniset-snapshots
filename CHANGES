@@ -1,3 +1,17 @@
+2024-07-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset: copyright
+
+	* uniset_dbl.out:
+	regen after update to parse category from comment in EastAsianWidth files.
+
+	* uniset:
+	the EastAsianWidth.txt (and derived WIDTH-x files) have the codepoint
+	category in a comment.  Some of those codepoints are reversed (not
+	implemented), and the category would be missing when removing codepoints
+	in a category, as done for the doublewidth codes.  Parse the category
+	from the comment, to apply in this special case.
+
 2023-09-25  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset: copyright
