@@ -1,6 +1,6 @@
-# $Revision: 1.6 $
+# $XTermId: makefile,v 1.9 2025/09/02 23:35:33 tom Exp $
 # -----------------------------------------------------------------------------
-# Copyright 2017-2019,2022 Thomas E. Dickey
+# Copyright 2017-2022,2025 Thomas E. Dickey
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,9 @@
 # SOFTWARE.
 # -----------------------------------------------------------------------------
 ALL	= \
+	WIDTH-A \
+	WIDTH-W \
+	emoset.out \
 	uniset.out \
 	uniset_cjk.out \
 	uniset_ctl.out \
@@ -28,6 +31,9 @@ ALL	= \
 	uniset_unk.out
 
 all:	$(ALL)
+
+emoset.out:
+	./run-emojis >$@
 
 uniset.out: UnicodeData.txt
 	./run-uniset >$@
@@ -45,11 +51,9 @@ uniset_unk.out: UnicodeData.txt
 	./run-uniset_unk >$@
 
 WIDTH-A: EastAsianWidth.txt
-	rm -f $@
 	./run-$@ >$@
 
 WIDTH-W: EastAsianWidth.txt
-	rm -f $@
 	./run-$@ >$@
 
 clean:

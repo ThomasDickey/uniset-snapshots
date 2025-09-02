@@ -1,3 +1,28 @@
+2025-09-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* emoset.out: regen
+
+	* makefile: trim redundant cleanups
+
+	* emoset: provide for associating multiple categories with a given UCS
+
+	* run-emojis: rename the output array
+
+	* makefile: add rule to make emoset.out
+
+	* emoset.out, run-emojis, emoset: RCS_BASE
+
+	* uniset.out, uniset_cjk.out, uniset_ctl.out, uniset_dbl.out,
+	  uniset_unk.out:
+	regen
+
+	* makefile: add WIDTH-A and WIDTH-W to all/clean rules,
+	and use a more informative rcs identifier
+
+	* run-uniset, run-uniset_cjk, run-uniset_ctl, run-uniset_dbl,
+	  run-uniset_unk:
+	fix shellcheck warnings, and use a more informative rcs identifier
+
 2024-09-11  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* WIDTH-W, uniset_dbl.out, uniset_unk.out, uniset.out:
@@ -6,6 +31,9 @@
 2024-08-25  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* Blocks.txt, EastAsianWidth.txt, UnicodeData.txt: from Unicode-16.1.0
+
+	* emoji/emoji-data.txt, emoji/emoji-variation-sequences.txt:
+	unicode-16.1.0-UCD
 
 2024-07-04  Thomas E. Dickey  <dickey@invisible-island.net>
 
@@ -47,6 +75,9 @@
 
 	* UnicodeData.txt, Blocks.txt, EastAsianWidth.txt: from Unicode-15.1.0
 
+	* emoji/emoji-data.txt, emoji/emoji-variation-sequences.txt:
+	unicode-15.1.0-UCD
+
 2022-09-23  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset.out: regen after splitting-out uniset_ctl
@@ -56,6 +87,14 @@
 	* uniset_ctl.out, run-uniset_ctl: RCS_BASE
 
 	* run-uniset: move "Cf" (formatting) category to uniset_ctl script
+
+2022-08-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* emoji/emoji-variation-sequences.txt: unicode-15.0.0-UCD
+
+2022-08-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* emoji/emoji-data.txt: unicode-15.0.0-UCD
 
 2022-08-03  Thomas E. Dickey  <dickey@invisible-island.net>
 
@@ -84,6 +123,11 @@
 
 	* Blocks.txt: from Unicode-15.0.0
 
+2021-08-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* emoji/emoji-data.txt, emoji/emoji-variation-sequences.txt:
+	unicode-14.0.0-UCD
+
 2021-07-06  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* UnicodeData.txt, EastAsianWidth.txt: from Unicode-14.0.0
@@ -107,6 +151,11 @@
 
 	* uniset_unk.out, WIDTH-W, uniset_cjk.out, uniset_dbl.out, uniset.out:
 	regen:unicode-13.0.0
+
+2020-01-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* emoji/emoji-data.txt, emoji/emoji-variation-sequences.txt:
+	unicode-13.0.0-UCD
 
 2020-01-21  Thomas E. Dickey  <dickey@invisible-island.net>
 

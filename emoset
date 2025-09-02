@@ -1,0 +1,380 @@
+#!/usr/bin/env perl
+# $XTermId: emoset,v 1.2 2025/09/02 23:34:40 tom Exp $
+# Copyright 2025 Thomas E. Dickey
+###############################################################################
+# Uniset -- Emoji subset manager
+
+use warnings;
+use strict;
+
+use open ':utf8';
+
+binmode( STDOUT, ":utf8" );
+binmode( STDIN,  ":utf8" );
+
+my ( %name, %invname, %category );
+
+print <<End if $#ARGV < 0;
+Emoset -- Emoji subset manager
+
+Emoset digests the emoji-data file, forming a list of intervals for the
+given Emoji category, allowing lookup in the same manner as wcwidth.
+End
+exit 1 if $#ARGV < 0;
+
+# Return the Unicode name that belongs to a given character code
+
+sub name {
+    my $ucs = shift(@_);
+
+    return $name{$ucs};
+}
+
+sub is_emoji {
+    my $ucs = shift(@_);
+
+    return exists $name{$ucs};
+}
+
+sub categories_of($) {
+    my $ucs    = shift;
+    my $result = "";
+    my %obj    = ();
+    if ( defined $category{$ucs} ) {
+        %obj = %{ $category{$ucs} };
+        for my $cat ( sort keys %obj ) {
+            $result .= " $cat";
+        }
+        $result = "[$result ]";
+    }
+    return $result;
+}
+
+# More than one Emoji property can apply to a given UCS.  Keep track in a hash.
+sub has_category($$) {
+    my $ucs    = shift;
+    my $cat    = shift;
+    my $result = 0;
+    my %obj    = ();
+    %obj    = %{ $category{$ucs} } if defined $category{$ucs};
+    $result = 1                    if defined $obj{$cat};
+    return $result;
+}
+
+sub add_category($$) {
+    my $ucs = shift;
+    my $cat = shift;
+    my %obj = ();
+    if ( defined $category{$ucs} ) {
+        %obj = %{ $category{$ucs} };
+        $obj{$cat}++;
+    }
+    else {
+        $obj{$cat} = 1;
+    }
+    $category{$ucs} = \%obj;
+}
+
+my $adducs     = 0;
+my $emoji_data = "emoji/emoji-data.txt";
+
+# read list of all Unicode names
+if ( !open( UDATA, $emoji_data ) ) {
+    die(    "Can't open Unicode database '$emoji_data':\n$!\n\n"
+          . "Please make sure that you have downloaded the file\n"
+          . "ftp://ftp.unicode.org/Public/UNIDATA/UnicodeData.txt\n" );
+}
+while (<UDATA>) {
+    chomp;
+    next unless length;
+    next if /^\s*#/;
+    $_ =~ s/\s*#[^)]*\)/;/;
+    $_ =~ s/\s*;\s*/;/g;
+
+    #next;
+    if (
+        /^([0-9,A-F]{4,8});
+          ([^;]*);
+          ([^;]*)$/x
+      )
+    {
+        my $ucs = hex($1);
+        $name{$ucs}  = $3;
+        $invname{$3} = $ucs;
+        add_category( $ucs, $2 );
+    }
+    elsif (
+        /^([0-9,A-F]{4,8})\.\.([0-9,A-F]{4,8});
+          ([^;]*);
+          ([^;]*)$/x
+      )
+    {
+        my $base = hex($1);
+        my $last = hex($2);
+        for my $ucs ( $base .. $last ) {
+            $name{$ucs}  = $2;
+            $invname{$2} = $ucs;
+            add_category( $ucs, $3 );
+        }
+    }
+    else {
+        die("Syntax error in line '$_' in file '$emoji_data'");
+    }
+}
+close(UDATA);
+
+our @SETS;
+our %used;
+
+# process command line arguments
+while ( $_ = shift(@ARGV) ) {
+    if (/^ucs$/) {
+        $adducs = 1;
+    }
+    elsif (/^\+cat=(.+)$/) {
+
+        # add characters with given category
+        my $cat = $1;
+        for my $i ( keys(%category) ) {
+            $used{$i} = "[${cat}]" if has_category( $i, $cat );
+        }
+    }
+    elsif (/^\-cat=(.+)$/) {
+
+        # remove characters with given category
+        my $cat = $1;
+        for my $i ( keys(%category) ) {
+            delete $used{$i} if has_category( $i, $cat );
+        }
+    }
+    elsif (/^\-cat!=(.+)$/) {
+
+        # remove characters without given category
+        my $cat = $1;
+        for my $i ( keys(%category) ) {
+            delete $used{$i} unless has_category( $i, $cat );
+        }
+    }
+    elsif (/^([+-]):(.*)/) {
+        my $remove  = $1 eq "-";
+        my $setfile = $2;
+        $setfile = shift(@ARGV) if $setfile eq "";
+        push( @SETS, $setfile );
+        open( SET, $setfile ) || die("Can't open set file '$setfile': '$!'");
+        my $setname = $setfile;
+        while (<SET>) {
+            while ($_) {
+                my $i = ord($_);
+                $used{$i} .= "[${setname}]" unless $remove;
+                delete $used{$i} if $remove;
+                $_ = substr( $_, 1 );
+            }
+        }
+        close SET;
+    }
+    elsif (/^([+-])(.*)/) {
+        my $remove  = $1 eq "-";
+        my $setfile = $2;
+        $setfile = "$setfile..$setfile" if $setfile =~ /^([0-9A-Fa-f]{4,8})$/;
+        if ( $setfile =~ /^([0-9A-Fa-f]{4,8})(-|\.\.)([0-9A-Fa-f]{4,8})$/ ) {
+
+            # handle interval specification on command line
+            my $first = hex($1);
+            my $last  = hex($3);
+            for ( my $i = $first ; $i <= $last ; $i++ ) {
+                $used{$i} .= "[ARG]" unless $remove;
+                delete $used{$i} if $remove;
+            }
+            next;
+        }
+        $setfile = shift(@ARGV) if $setfile eq "";
+        push( @SETS, $setfile );
+        open( SET, $setfile ) || die("Can't open set file '$setfile': '$!'");
+        my $cedf = ( $setfile =~ /cedf/ )
+          ;    # detect Kosta Kosti's trans CEDF format by path name
+        my $setname = $setfile;
+        $setname =~ s/([^.\[\]]*)\..*/$1/;
+        my $comment_char;
+        my $escape_char;
+
+        while (<SET>) {
+
+            if (/^<code_set_name>/) {
+
+                # handle ISO 15897 (POSIX registry) charset mapping format
+                undef $comment_char;
+                undef $escape_char;
+                while (<SET>) {
+                    if ( $comment_char && /^$comment_char/ ) {
+
+                        # remove comments
+                        $_ = $`;
+                    }
+                    next if (/^\032?\s*$/);    # skip empty lines
+                    if (/^<comment_char> (\S)$/) {
+                        $comment_char = $1;
+                    }
+                    elsif (/^<escape_char> (\S)$/) {
+                        $escape_char = $1;
+                    }
+                    elsif (/^(END )?CHARMAP$/) {
+
+                        #ignore
+                    }
+                    elsif (/^<.*>\s*\/x([0-9A-F]{2})\s*<U([0-9A-F]{4,8})>/) {
+                        $used{ hex($2) } .= "[${setname}{$1}]" unless $remove;
+                        delete $used{ hex($2) } if $remove;
+                    }
+                    else {
+                        die(    "Syntax error in line $. "
+                              . "in file '$setfile':\n'$_'\n" );
+                    }
+                }
+                next;
+            }
+            elsif (/^STARTFONT /) {
+
+                # handle X11 BDF file
+                while (<SET>) {
+                    if (/^ENCODING\s+([0-9]+)/) {
+                        $used{$1} .= "[${setname}]" unless $remove;
+                        delete $used{$1} if $remove;
+                    }
+                }
+                next;
+            }
+            if (/^\s*(0X|U\+|U-)?([0-9A-F]{2})\s+\#\s*UNDEFINED\s*$/) {
+
+                # ignore ftp.unicode.org mapping file lines with #UNDEFINED
+                next;
+            }
+            next if (/^\032?\s*$/);    # skip empty lines
+            if (/^\s*(0X)?([0-9A-F-]{2})\s+(0X|U\+|U-)?([0-9A-F]{4,8})\s*$/) {
+
+                # handle entry from a ftp.unicode.org mapping file
+                $used{ hex($4) } .= "[${setname}{$2}]" unless $remove;
+                delete $used{ hex($4) } if $remove;
+            }
+            elsif (
+                /^\s*(0X|U\+|U-)?
+                 ([0-9A-F]{4,8})
+                 (\s*-\s*|\s*\.\.\s*|\s+)
+                 (0X|U\+|U-)?
+                 ([0-9A-F]{4,8})
+                 (\s*;\s*[AWF])?\s*$/x
+              )
+            {
+
+                # handle interval specification
+                my $first = hex($2);
+                my $last  = hex($5);
+
+                for ( my $i = $first ; $i <= $last ; $i++ ) {
+                    if ($remove) {
+                        delete $used{$i};
+                    }
+                    else {
+                        $used{$i} .= "[${setname}]";
+                    }
+                }
+            }
+            elsif (
+                /^\s*([0-9A-F]{2,6})
+                 (\s+[0-9A-F]{2},?|\s+[0-9A-F]{2}-[0-9A-F]{2},?)+/
+              )
+            {
+                my $first = 0;
+                my $last  = -1;
+
+                # handle lines from P10 MES draft
+                my $row  = $1;
+                my $cols = $_;
+
+                $cols =~ s/^\s*([0-9A-F]{2,6})\s*(.*)\s*$/$2/;
+                $cols =~ tr/,//d;
+                my @cols = split( /\s+/, $cols );
+
+                for (@cols) {
+                    if (/^(..)$/) {
+                        $first = hex("$row$1");
+                        $last  = $first;
+                    }
+                    elsif (/^(..)-(..)$/) {
+                        $first = hex("$row$1");
+                        $last  = hex("$row$2");
+                    }
+                    else {
+                        die("this should never happen '$_'");
+                    }
+                    for ( my $i = $first ; $i <= $last ; $i++ ) {
+                        $used{$i} .= "[${setname}]" unless $remove;
+                        delete $used{$i} if $remove;
+                    }
+                }
+            }
+            elsif (/^\s*(0X|U\+|U-)?([0-9A-F]{4,8})\s*/) {
+
+                # handle single character
+                $used{ hex($2) } .= "[${setname}]" unless $remove;
+                delete $used{ hex($2) } if $remove;
+            }
+            else {
+                die("Syntax error in line $. in file '$setfile':\n'$_'\n")
+                  unless /^\s*(\#.*)?$/;
+            }
+        }
+        close SET;
+    }
+    elsif (/^c$/) {
+
+        # print table as C interval array
+        print "{";
+        my $last_i  = '';
+        my $columns = 3;
+        my $col     = $columns;
+        for my $i ( sort( { $a <=> $b } keys(%used) ) ) {
+            if ( $name{$i} ) {
+                next if ( $name{$i} eq "<control>" );
+            }
+            if ( $last_i eq '' ) {
+                if ( ++$col > $columns ) { $col = 1; print "\n "; }
+                printf( " { 0x%04X, ", $i );
+                $last_i = $i;
+            }
+            elsif ( $i == $last_i + 1 ) {
+                $last_i = $i;
+            }
+            else {
+                printf( "0x%04X },", $last_i );
+                if ( ++$col > $columns ) { $col = 1; print "\n "; }
+                printf( " { 0x%04X, ", $i );
+                $last_i = $i;
+            }
+        }
+        if ( $last_i ne '' ) {
+            printf( "0x%04X }", $last_i );
+        }
+        print "\n};\n";
+    }
+    elsif (/^clean$/) {
+
+        # remove characters from set that are not in $emoji_data
+        for my $i ( keys(%used) ) {
+            delete $used{$i} unless is_emoji($i);
+        }
+    }
+    elsif (/^summary$/) {
+
+        # print a table of the categories and number of codes in each
+    }
+    elsif (/^unknown$/) {
+
+        # remove characters from set that are in $emoji_data
+        for my $i ( keys(%used) ) {
+            delete $used{$i} if is_emoji($i);
+        }
+    }
+    else {
+        die("Unknown command line command '$_'");
+    }
+}
