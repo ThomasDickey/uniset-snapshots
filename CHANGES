@@ -1,3 +1,19 @@
+2025-09-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset_dbl.out: regen
+
+	* run-uniset_dbl:
+	investigation with emoset shows that the Emoji data file's "Emoji" class
+	has all of the characters, repeated in associated classes.  Its format
+	is close enough to that used in uniset that the other data can be ignored.
+	Unicode glosses over widths, but TR51 hints:
+		Current practice is for emoji to have a square aspect ratio, deriving from their origin in Japanese.
+	so "current practice" is to pretend that it is standard as double-width.
+	At the same time, TR51 introduces the ASCII characters repurposed as "tag
+	characters".  Filter those out, and add the bulk of the Emoji characters
+	here as double-width.  That changes 193 codes from single-width to double,
+	and is simpler than providing for Emoji's as a special case.
+
 2025-09-02  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* emoset.out: regen
