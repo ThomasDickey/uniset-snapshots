@@ -1,3 +1,8 @@
+2025-09-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* uniset_unk.out, uniset_dbl.out, WIDTH-W, emoset.out, uniset.out:
+	regen/Unicode-17
+
 2025-09-03  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* uniset_dbl.out: regen
@@ -38,6 +43,12 @@
 	* run-uniset, run-uniset_cjk, run-uniset_ctl, run-uniset_dbl,
 	  run-uniset_unk:
 	fix shellcheck warnings, and use a more informative rcs identifier
+
+2025-08-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Blocks.txt, EastAsianWidth.txt, UnicodeData.txt, emoji/emoji-data.txt,
+	  emoji/emoji-variation-sequences.txt:
+	from Unicode-17.0.0
 
 2024-09-11  Thomas E. Dickey  <dickey@invisible-island.net>
 
